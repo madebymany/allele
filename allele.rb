@@ -52,12 +52,11 @@ run "rm app/assets/stylesheets/application.css"
 run "rm app/views/layouts/application.html.erb"
 create_file 'app/views/home/index.html.erb'
 
-copy_file File.join(File.dirname(__FILE__), 'templates/favicon.ico'), "public/favicon.ico"
-copy_file File.join(File.dirname(__FILE__), 'templates/README.md'), "README.md"
-copy_file File.join(File.dirname(__FILE__), 'templates/app/assets/javascripts/application.js'), "app/assets/javascripts/application.js"
-copy_file File.join(File.dirname(__FILE__), 'templates/app/assets/stylesheets/application.css.scss'), "app/assets/stylesheets/application.css.scss"
-copy_file File.join(File.dirname(__FILE__), 'templates/app/assets/stylesheets/application.css.scss'), "app/assets/stylesheets/application.css.scss"
-copy_file File.join(File.dirname(__FILE__), 'templates/app/views/layouts/application.html.erb'), "app/views/layouts/application.html.erb"
+get 'http://raw.github.com/madebymany/allele/master/templates/favicon.ico', "public/favicon.ico"
+get 'http://raw.github.com/madebymany/allele/master/templates/README.md', "README.md"
+get 'http://raw.github.com/madebymany/allele/master/templates/app/assets/javascripts/application.js', "app/assets/javascripts/application.js"
+get 'http://raw.github.com/madebymany/allele/master/templates/app/assets/stylesheets/application.css.scss', "app/assets/stylesheets/application.css.scss"
+get 'http://raw.github.com/madebymany/allele/master/templates/app/views/layouts/application.html.erb', "app/views/layouts/application.html.erb"
 
 create_file 'app/controllers/home_controller.rb' do <<-'FILE'
   class HomeController < ApplicationController
