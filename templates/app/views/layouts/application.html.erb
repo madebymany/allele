@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Allele</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header class="navbar container"> 
+    <div class="navbar-inner">
+      <%= link_to "Allele", root_path, :class => "brand" %>
+      <ul class="nav">
+        <li class="<%= 'active' if params[:controller] == "home" %>"><%= link_to "Home", root_path %></li>
+      </ul>
+    </div>  
+  </header>
+  
+  <% if notice.present? || alert.present? %>
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+  <% end %>
+  
+  <div class="container">
+    <%= yield %>
+  </di>
+
+</body>
+</html>
