@@ -1,5 +1,3 @@
-# rails new new_app_name -d mysql -m allele.rb
-
 # set up the databases
 rake "db:create:all"
 
@@ -74,7 +72,7 @@ run "cp config/database.yml config/database.example.yml"
 run "rm public/index.html"
 run "rm app/assets/images/rails.png"
 
-# Git
+# Create the Git repo
 file ".gitignore", <<-END
 .DS_Store
 /.bundle
@@ -100,7 +98,7 @@ git :commit => "-a -m 'New application from Allele template'"
 # Final migration
 rake ("db:migrate")
 
-# Configure
+# Interactive configure
 say "\nTime to configure your new app...\n\n"
 from_address = ask("Default mailer from address:")
 notification_address = ask("Exception notification email recipient:")
@@ -115,13 +113,14 @@ if sendgrid_account
   sendgrid_password = ask("SendGrid password:")
 end
 
-gsub_file 'config/initializers/devise.rb', 'please-change-me-at-config-initializers-devise@example.com', from_address
-
+# Some basic asset and mailer config
 application 'config.assets.initialize_on_precompile = false'
-
+gsub_file 'config/initializers/devise.rb', 'please-change-me-at-config-initializers-devise@example.com', from_address
 environment "config.action_mailer.default_url_options = { host: 'http://localhost:3000' }", env: 'development'
 environment "ActionMailer::Base.default :from => '#{from_address}'", env: 'development'
 environment "ActionMailer::Base.default :from => '#{from_address}'", env: 'production'
+
+# Config for Exception Notifier and SendGrid
 environment "config.middleware.use ExceptionNotifier,
      :email_prefix => 'Application Error',
      :sender_address => '#{from_address}',
@@ -137,15 +136,25 @@ environment "config.middleware.use ExceptionNotifier,
       :enable_starttls_auto => true
   }", env: 'production'
 
-# Setup remote environment
+# Create remote environment
 run "heroku create"
+
+# Nasty...
+hostname = ask("\nOne second, what did Heroku say your hostname was?\n")
+environment "config.action_mailer.default_url_options = { host: '#{hostname}' }", env: 'production'
+
+# Carry on, nothing to see here
+say("I see, thanks, couldn't make him out.")
 run "git push heroku master && heroku run rake db:migrate"
+
+# Set some vars for third-party services
 run "heroku config:set S3_KEY=#{s3_key} S3_SECRET=#{s3_secret} S3_BUCKET=#{s3_bucket}"
 if sendgrid_account
   run "heroku config:set SENDGRID_USERNAME=#{sendgrid_username} SENDGRID_PASSWORD=#{sendgrid_password}"
 else
   run "heroku addons:add sendgrid:starter"
 end
-run "heroku restart"
 
+# Restart, we're done
+run "heroku restart"
 say "\nDone: Allele application created.\n"
