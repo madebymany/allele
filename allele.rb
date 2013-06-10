@@ -157,4 +157,4 @@ end
 
 # Restart, we're done
 run "heroku restart"
-say "\nDone: Allele application created.\n"
+say "\nDone: Allele application created at #{hostname}\n"
