@@ -116,7 +116,7 @@ end
 # Some basic asset and mailer config
 application 'config.assets.initialize_on_precompile = false'
 gsub_file 'config/initializers/devise.rb', 'please-change-me-at-config-initializers-devise@example.com', from_address
-environment "config.action_mailer.default_url_options = { host: 'http://localhost:3000' }", env: 'development'
+environment "config.action_mailer.default_url_options = { host: 'localhost:3000' }", env: 'development'
 environment "ActionMailer::Base.default :from => '#{from_address}'", env: 'development'
 environment "ActionMailer::Base.default :from => '#{from_address}'", env: 'production'
 
@@ -140,11 +140,11 @@ environment "config.middleware.use ExceptionNotifier,
 run "heroku create"
 
 # Nasty...
-hostname = ask("\nOne second, what did Heroku say your hostname was?\n")
+hostname = ask("\nOne second, what did Heroku say your hostname was? No 'http' please: ")
 environment "config.action_mailer.default_url_options = { host: '#{hostname}' }", env: 'production'
 
 # Carry on, nothing to see here
-say("I see, thanks, couldn't make him out.")
+say("\nI see, thanks, couldn't make him out.\n")
 run "git push heroku master && heroku run rake db:migrate"
 
 # Set some vars for third-party services
