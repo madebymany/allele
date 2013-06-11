@@ -15,7 +15,7 @@ To create a fresh app from the Allele template, setup Git and a remote environme
 - Image uploads with [Carrierwave](https://github.com/carrierwaveuploader/carrierwave) and file storage on S3 via [Fog](https://github.com/fog/fog)
 - Save time on basic CRUD methods with [Inherited Resources](https://github.com/josevalim/inherited_resources)
 - Neat and easy to code forms with [Simple Form](https://github.com/plataformatec/simple_form)
-- [Premailer](https://github.com/fphilipe/premailer-rails) takes a lot of hassle out of handling HTML emails
+- [Premailer](https://github.com/fphilipe/premailer-rails) and [MailView](https://github.com/37signals/mail_view) takes a lot of hassle out of handling HTML emails
 - [ExceptionNotifier](https://github.com/rails/exception_notification) lets you know when a user breaks something
 
 ## What's not

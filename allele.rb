@@ -64,6 +64,15 @@ create_file 'app/controllers/home_controller.rb' do <<-'FILE'
 FILE
 end
 
+create_file 'app/mailers/mail_preview.rb' do <<-'FILE'
+  class MailPreview < MailView
+    def example
+      Mailer.mail().deliver
+    end
+  end
+FILE
+end
+
 # Tidy up filesystem
 run "rm .gitignore"
 run "rm -rf doc/"
