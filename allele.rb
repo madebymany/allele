@@ -5,7 +5,7 @@ rake "db:create:all"
 gem 'pg'
 gem 'strong_parameters'
 gem 'bootstrap-sass', '~> 2.3.1.3'
-gem 'jquery-rails'
+gem 'jquery-rails', "2.3.0"
 gem 'simple_form'
 gem 'devise'
 gem 'carrierwave'
@@ -55,21 +55,24 @@ get 'https://raw.github.com/madebymany/allele/master/templates/README.md', "READ
 get 'https://raw.github.com/madebymany/allele/master/templates/app/assets/javascripts/application.js', "app/assets/javascripts/application.js"
 get 'https://raw.github.com/madebymany/allele/master/templates/app/assets/stylesheets/application.css.scss', "app/assets/stylesheets/application.css.scss"
 get 'https://raw.github.com/madebymany/allele/master/templates/app/views/layouts/application.html.erb', "app/views/layouts/application.html.erb"
+get 'https://raw.github.com/madebymany/allele/master/templates/config/initializers/carrierwave.rb', "config/initializers/carrierwave.rb"
 
 create_file 'app/controllers/home_controller.rb' do <<-'FILE'
-  class HomeController < ApplicationController
-    def index
-    end
+class HomeController < ApplicationController
+  def index
   end
+end
 FILE
 end
 
 create_file 'app/mailers/mail_preview.rb' do <<-'FILE'
+if Rails.env.development? 
   class MailPreview < MailView
     def example
       Mailer.mail().deliver
     end
   end
+end
 FILE
 end
 
