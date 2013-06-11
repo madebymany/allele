@@ -9,7 +9,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick','~> 3.3'
-gem 'fog'
+gem "fog", "~> 1.3.1"
 gem 'exception_notification'
 gem 'friendly_id'
 gem 'premailer-rails'
@@ -32,14 +32,14 @@ gem_group :development, :test do
   gem 'pry-remote'
 end
 
+# Routes
+route "root to: 'home#index'"
+
 # Generators
 generate ("simple_form:install --bootstrap")
 generate ("devise:install")
 generate ("devise User")
 generate ("devise:views")
-
-# Routes
-route "root to: 'home#index'"
 
 # Create some template files
 run "rm README.rdoc"
@@ -155,7 +155,7 @@ hostname = ask("\nOne second, what did Heroku say your hostname was? No 'http' p
 environment "config.action_mailer.default_url_options = { host: '#{hostname}' }", env: 'production'
 
 # Carry on, nothing to see here
-say("\nI see, thanks, couldn't make him out.\n")
+say("\nI see, thanks, couldn't make him out.\n\n")
 run "git push heroku master && heroku run rake db:migrate"
 
 # Set some vars for third-party services
