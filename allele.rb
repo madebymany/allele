@@ -5,7 +5,6 @@ rake "db:create:all"
 gem 'pg'
 gem 'strong_parameters'
 gem 'bootstrap-sass', '~> 2.3.1.3'
-gem 'jquery-rails', "2.3.0"
 gem 'simple_form'
 gem 'devise'
 gem 'carrierwave'
