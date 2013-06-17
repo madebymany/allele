@@ -1,5 +1,3 @@
-# Allele
-
 Welcome to your new Allele Rails app.
 
 ## What's included
