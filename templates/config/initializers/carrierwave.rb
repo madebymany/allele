@@ -21,6 +21,6 @@ if Rails.env.production?
       :region                 => 'eu-west-1'
     } 
     config.fog_directory  = ENV['S3_BUCKET']
-    config.fog_public     = false
+    config.fog_public     = true
   end
 end

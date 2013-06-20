@@ -50,7 +50,7 @@ run "rm app/views/layouts/application.html.erb"
 create_file 'app/views/home/index.html.erb'
 
 get 'https://raw.github.com/madebymany/allele/master/templates/favicon.ico', "public/favicon.ico"
-get 'https://raw.github.com/madebymany/allele/master/templates/README.md', "README.md"
+get 'https://raw.github.com/madebymany/allele/master/templates/READ.md', "README.md"
 get 'https://raw.github.com/madebymany/allele/master/templates/app/assets/javascripts/application.js', "app/assets/javascripts/application.js"
 get 'https://raw.github.com/madebymany/allele/master/templates/app/assets/stylesheets/application.css.scss', "app/assets/stylesheets/application.css.scss"
 get 'https://raw.github.com/madebymany/allele/master/templates/app/views/layouts/application.html.erb', "app/views/layouts/application.html.erb"
