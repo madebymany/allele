@@ -119,7 +119,7 @@ s3_secret = ask("S3 secret:")
 s3_bucket = ask("S3 bucket:")
 
 sendgrid_account = yes?("\nUse your own SendGrid account? (yes|no) ")
-if sendgrid_account 
+if sendgrid_account
   sendgrid_username = ask("SendGrid username:")
   sendgrid_password = ask("SendGrid password:")
 end
@@ -136,7 +136,7 @@ environment "config.middleware.use ExceptionNotifier,
      :email_prefix => 'Application Error',
      :sender_address => '#{from_address}',
      :exception_recipients => '#{notification_address}'
-    
+
   ActionMailer::Base.smtp_settings = {
       :address        => 'smtp.sendgrid.net',
       :port           => '587',
