@@ -10,9 +10,12 @@ Welcome to your new Allele Rails app.
 - [Premailer](https://github.com/fphilipe/premailer-rails) takes a lot of hassle out of handling HTML emails
 - [ExceptionNotifier](https://github.com/rails/exception_notification) lets you know when a user breaks something
 
-## What's not
+## Need more?
 
-These Gems aren't installed by default, but come highly recommended for quick 'n' dirty functionality.
+For basic authorisation with `cancan` and content management with `activeadmin` run:
 
-- Content management out-of-the-box from [ActiveAdmin](http://activeadmin.info/)
-- Enhance basic authentication with a splash of authorisation from [CanCan](https://github.com/ryanb/cancan)
+```bash
+rails generate allele_admin
+```
+
+...or check out the Allele Wiki for some more quick 'n' dirty functionality.

@@ -2,8 +2,8 @@ class AlleleAdminGenerator < Rails::Generators::Base
 
   def allele_admin
 
-    gem("jquery-rails", "2.3.0")
-    gem("activeadmin", '~> 0.6.0')
+    # Use head for now, 0.6.0 is buggy
+    gem("activeadmin", :git => 'https://github.com/gregbell/active_admin.git')
     gem("cancan")
 
     create_file 'app/models/ability.rb' do <<-'FILE'
