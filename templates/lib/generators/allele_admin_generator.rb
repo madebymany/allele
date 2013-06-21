@@ -31,8 +31,15 @@ inject_into_class "app/models/user.rb", User do
 end
 
 generate("active_admin:install --skip-users")
-# delete comment/note migrations
-# edit aa settings
+
+inject_into_file "config/initializers/active_admin.rb", :after => "ActiveAdmin.setup do |config|\n" do
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+end
+
+gsub_file 'config/initializers/active_admin.rb', 'config.logout_link_method = :get', 'config.logout_link_method = :delete'
+gsub_file 'config/initializers/active_admin.rb', 'destroy_admin_user_session_path', 'destroy_user_session_path'
+gsub_file 'config/initializers/active_admin.rb', 'current_admin_user', 'current_user'
+gsub_file 'config/initializers/active_admin.rb', 'authenticate_admin_user!', 'authenticate_user!'
 
 rake("db:migrate")
 
