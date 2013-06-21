@@ -55,6 +55,7 @@ get 'https://raw.github.com/madebymany/allele/master/templates/app/assets/javasc
 get 'https://raw.github.com/madebymany/allele/master/templates/app/assets/stylesheets/application.css.scss', "app/assets/stylesheets/application.css.scss"
 get 'https://raw.github.com/madebymany/allele/master/templates/app/views/layouts/application.html.erb', "app/views/layouts/application.html.erb"
 get 'https://raw.github.com/madebymany/allele/master/templates/config/initializers/carrierwave.rb', "config/initializers/carrierwave.rb"
+get 'https://github.com/madebymany/allele/blob/master/templates/lib/generators/allele_admin_generator.rb', "lib/generators/allele_admin_generator.rb"
 
 create_file 'app/controllers/home_controller.rb' do <<-'FILE'
 class HomeController < ApplicationController
