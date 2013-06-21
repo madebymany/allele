@@ -20,9 +20,10 @@ To create a fresh app from the Allele template, setup Git and a remote environme
 
 ## Need more?
 
-Check out the Wiki for some quick 'n' dirty functionality.
+For basic authorisation with `cancan` and content management with `activeadmin` run:
 
-## Todo
+```bash
+rails generate allele_admin
+```
 
-- Generator for CanCan and ActiveAdmin install
-- MxM prototype theme integration
+...or check out the Wiki for some more quick 'n' dirty functionality.
