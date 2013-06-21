@@ -3,7 +3,6 @@ class AlleleAdminGenerator < Rails::Generators::Base
   def allele_admin
 
     gem("jquery-rails", "2.3.0")
-
     gem("activeadmin", '~> 0.6.0')
     gem("cancan")
 
