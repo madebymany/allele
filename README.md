@@ -4,9 +4,11 @@ A Ruby on Rails app template for even rapid-er prototyping.
 
 ## Get started
 
-To create a fresh app from the Allele template, setup Git and a remote environment on Heroku, run:
+To create a fresh app from the Allele template with a remote environment on Heroku, simply run:
 
 `rails new app_name -d mysql -m https://raw.github.com/madebymany/allele/master/allele.rb`
+
+*Note: we enable a `nofollow, noindex` and robots.txt `disallow` by default*
 
 ## What's included
 

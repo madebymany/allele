@@ -1,5 +1,7 @@
 Welcome to your new Allele Rails app.
 
+*Note: we enable a `nofollow, noindex` and robots.txt `disallow` by default*
+
 ## What's included
 
 - Authentication from [Devise](https://github.com/plataformatec/devise)
