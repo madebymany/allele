@@ -23,6 +23,7 @@ class AlleleAdminGenerator < Rails::Generators::Base
     generate("migration", "AddRoleToUsers role:string")
 
     inject_into_class "app/models/user.rb", User do
+      "\nattr_accessible :role"
       "\n# Privileges are inherited between roles in the order specified in the ROLES
       # array. E.g. An admin can do the same as an moderator + more.
       # If the role attribute is not set, the user does not have any privileges.
