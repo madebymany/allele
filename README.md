@@ -8,8 +8,6 @@ To create a fresh app from the Allele template with a remote environment on Hero
 
 `rails new app_name -d mysql -m https://raw.github.com/madebymany/allele/master/allele.rb`
 
-*Note: we enable a `nofollow, noindex` and robots.txt `disallow` by default*
-
 ## What's included
 
 - Authentication from [Devise](https://github.com/plataformatec/devise)
@@ -21,6 +19,8 @@ To create a fresh app from the Allele template with a remote environment on Hero
 - [ExceptionNotifier](https://github.com/rails/exception_notification) lets you know when a user breaks something
 - Free server ops from [Heroku](http://heroku.com) and application mailers from [SendGrid](http://sendgrid.com)
 
+*Note: we add a `nofollow, noindex` tag and and `disallow` in robots.txt by default*
+
 ## Need more?
 
 For basic authorisation with `cancan` and content management with `activeadmin` run:
@@ -29,7 +29,7 @@ For basic authorisation with `cancan` and content management with `activeadmin` 
 rails generate allele_admin
 ```
 
-...or check out the Wiki for some more quick 'n' dirty functionality.
+Check out the Wiki for some more quick 'n' dirty functionality.
 
 ## Rails 4
 
