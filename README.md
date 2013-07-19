@@ -31,8 +31,9 @@ rails generate allele_admin
 
 ...or check out the Wiki for some more quick 'n' dirty functionality.
 
-## Future
+## Rails 4
 
-- Move to Rails 4 once all gems function well together
-- Upgrade ActiveAdmin to Rails 4 branch
-- Once AA4 is in place, write a Sir-Trevor V3 generator
+While Rails 4 is now a stable release, many of the gems we rely on are not, roadmap:
+
+- Move to Rails 4 once ActiveAdmin and SimpleForm cut reliable releases
+- ...then write a Sir-Trevor V3 generator
